@@ -17,23 +17,35 @@
       <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
     </ul>
-    <div ref="container_1"></div>
-    <div ref="container_2"></div>
+    <my-page></my-page>
+    <counter :stores="stores"></counter>
+    <counter :stores="stores2"></counter>
   </div>
 </template>
 
 <script>
 import counter from '../business/counter';
+import connector from '../business/connector.vue';
+import elCounter from '../business/counter.vue';
+import MyPage from './my-page.vue';
 
 export default {
   name: 'HelloWorld',
+  components: {
+    counter: elCounter,
+    connector,
+    MyPage,
+  },
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      stores: {},
+      stores2: {},
     }
   },
   mounted () {
-    counter(this.$refs.container_1);
+    this.stores = counter();
+    this.stores2 = counter();
   }
 }
 </script>

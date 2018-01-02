@@ -1,14 +1,31 @@
 <template>
-  <div>123</div>
+  <div>
+    <connect :stores="stores">
+      <div slot-scope="scope">
+        <h1>{{scope.state}}</h1>
+        <button @click="add">click to add</button>
+      </div>
+    </connect>
+  </div>
 </template>
 
 <script>
+  import connect from './connector.vue';
+
   class Main {
+    components = {
+      connect,
+    };
+
     props = ['stores'];
 
-    mounted = () => {
-      debugger;
-    }
+    methods = {
+      add() {
+        this.stores.actions.add({
+          amount: 1,
+        });
+      }
+    };
   }
 
   export default new Main();
