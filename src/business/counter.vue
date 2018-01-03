@@ -10,7 +10,8 @@
 </template>
 
 <script>
-  import connect from './connector.vue';
+//  import connect from './connector.vue';
+  import connect from 'vue-own-redux';
 
   class Main {
     components = {

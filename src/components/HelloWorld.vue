@@ -25,7 +25,7 @@
 
 <script>
 import counter from '../business/counter';
-import connector from '../business/connector.vue';
+//import connector from '../business/connector.vue';
 import elCounter from '../business/counter.vue';
 import MyPage from './my-page.vue';
 
@@ -33,7 +33,6 @@ export default {
   name: 'HelloWorld',
   components: {
     counter: elCounter,
-    connector,
     MyPage,
   },
   data () {
