@@ -1,6 +1,6 @@
 import createReducer from './reducer';
 
-export default function (container) {
+export default function () {
   const {actions, reducers, store} = createReducer();
 
   return {

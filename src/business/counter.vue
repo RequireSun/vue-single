@@ -3,7 +3,8 @@
     <connect :stores="stores">
       <div slot-scope="scope">
         <h1>{{scope.state}}</h1>
-        <button @click="add">click to add</button>
+        <button @click="add">actions in methods</button>
+        <button @click={scope.action.minus({amount:1})}>actions on element</button>
       </div>
     </connect>
   </div>

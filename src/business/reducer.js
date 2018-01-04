@@ -3,7 +3,7 @@ import {createActions,handleActions} from 'redux-actions';
 import bindActions from 'vue-own-redux/bindActions';
 
 const ADD = 'ADD';
-const TEST_ACTION = 'TEST_ACTION';
+const MINUS = 'MINUS';
 
 export default function () {
   const reducers = handleActions({
@@ -11,6 +11,12 @@ export default function () {
       return {
         ...state,
         count: state.count + action.payload.amount,
+      }
+    },
+    [MINUS](state, action) {
+      return {
+        ...state,
+        count: state.count - action.payload.amount,
       }
     }
   }, {
@@ -21,6 +27,7 @@ export default function () {
 
   const actions = bindActions(store, createActions({
     [ADD]: info => info,
+    [MINUS]: info => info,
   }));
 
   return {
