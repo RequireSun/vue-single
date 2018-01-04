@@ -25,7 +25,6 @@
 
 <script>
 import counter from '../business/counter';
-//import connector from '../business/connector.vue';
 import elCounter from '../business/counter.vue';
 import MyPage from './my-page.vue';
 
