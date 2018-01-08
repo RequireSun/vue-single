@@ -3,8 +3,10 @@
     <connect :stores="stores">
       <div slot-scope="scope">
         <h1>{{scope.state}}</h1>
-        <button @click="add">actions in methods</button>
-        <button @click={scope.action.minus({amount:1})}>actions on element</button>
+        <span>{{scope.state.count}}</span>
+        <button @click="clear">actions in methods (clear)</button>
+        <button @click={scope.action.set({count:77})}>actions on element (set)</button>
+        <button @click="setAfter1">business in methods (set after 1 second)</button>
       </div>
     </connect>
   </div>
@@ -21,10 +23,11 @@
     props = ['stores'];
 
     methods = {
-      add() {
-        this.stores.actions.add({
-          amount: 1,
-        });
+      clear() {
+        this.stores.actions.clear();
+      },
+      setAfter1() {
+        this.stores.business.setCount666After1Second();
       }
     };
   }
